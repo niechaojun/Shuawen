@@ -2,10 +2,11 @@
 import requests as rs
 import re
 import os
+#code by nienie
 u'''  
 注：
     Agent error:[1]!
-    IP和port都是正常的，但是访问返回值出错
+    IP和port都是正常的，但是访问返回值出错,也有可能已经刷成功了
     Agent error:[2]!
     ip和port出错
 '''
@@ -13,7 +14,9 @@ def N_start(url,IPfile,num,oknum):
     file = []
     fileurl = re.sub(":","",re.sub("/","",re.sub("\?","",url)))
     print fileurl
-    fp=open("D:\\pythonfile\\IP\\"+IPfile,'r')
+    FilePath = os.getcwd()+os.sep+"IP"+os.sep
+    print FilePath
+    fp=open(FilePath+IPfile,'r')
     for i in fp.readlines():
         file.append(i.strip('\r\n'))
     fp.close()
@@ -28,7 +31,7 @@ def N_start(url,IPfile,num,oknum):
         print N_proxies
         print "Test the "+str(ii)+" IP"
         try:
-            fsession = open("D:\\pythonfile\\IP\\"+str(fileurl)+".nie",'w')
+            fsession = open(FilePath+str(fileurl)+".nie",'w')
             fsession.write(str(ii))
             fsession.close()
         except:
@@ -49,10 +52,10 @@ def N_start(url,IPfile,num,oknum):
             print "Agent error:[2]!"
 
 if __name__=="__main__":
-    url = "http://yoururl"#Enter an article link that you want to brush, and note that the protocol must be HTTP,if it is not to be changed to HTTP
-    filepath = "D:\\pythonfile\\IP\\"+str(re.sub(":","",re.sub("/","",url)))+".nie"
-    if os.path.exists(filepath):
-        fs = open(filepath,'r')
+    url = "" #Enter an Article link that you want to brush,and note that the url protocol must be HTTP,if it is not to be changed to HTTP
+    FilePath = os.getcwd()+os.sep+"IP"+os.sep+str(re.sub(":","",re.sub("/","",re.sub("\?","",url))))+".nie"
+    if os.path.exists(FilePath):
+        fs = open(FilePath,'r')
         try:
             num = fs.readlines()[0]
             print "Loding session"
