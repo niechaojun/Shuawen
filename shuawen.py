@@ -49,7 +49,7 @@ def N_start(url,IPfile,num,oknum):
             print "Agent error:[2]!"
 
 if __name__=="__main__":
-    url = "http://www.meigui98.com/?fromuser=nie"#http://www.k970.xyz/t.php?id=6910"#https://www.toutiao.com/i6526046833033085444/"#http://www.toutiao.com/i6523903718201491976/"#http://www.kpd.la/t.php?id=788"#http://www.toutiao.com/i6518727980863193614/"
+    url = "http://yoururl"#Enter an article link that you want to brush, and note that the protocol must be HTTP,if it is not to be changed to HTTP
     filepath = "D:\\pythonfile\\IP\\"+str(re.sub(":","",re.sub("/","",url)))+".nie"
     if os.path.exists(filepath):
         fs = open(filepath,'r')
